@@ -100,7 +100,7 @@ class Client(Socket, Service):
     return self.post("/friendships", {"id":userId,"state":"friends"})
 
   def search_users(self, search_for: str, friends: bool = True, recents: bool = False, all: bool = True):
-    return UsersList(self.get("/users/search?q=rahaf", {"q": search_for, "friends": friends, "recents": recents, "all": all}))
+    return UsersList(self.get("/users/search", {"q": search_for, "friends": friends, "recents": recents, "all": all}))
 
   def get_friendships(self, limit: int = 24):
     return UsersList(self.get("/friendships", {"limit": limit}))
